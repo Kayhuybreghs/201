@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.khcustomweb.com/sitemap.xml
+
+# Disallow admin areas
+Disallow: /wp-admin/
+Disallow: /admin/
+Disallow: /wp-login.php
+
+# Disallow specific files
+Disallow: /*.pdf$
+Disallow: /*.doc$
+Disallow: /*.docx$
+
+# Disallow temp files
+Disallow: /*?*
