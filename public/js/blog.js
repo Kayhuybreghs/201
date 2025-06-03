@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
             link: "betaalbaar-webdesign-venlo-gratis-demo.html"
         },
         {
-            category: "Webdesign",
+            category: "Webdesign & Websites",
             title: "Professionele Website in Venlo Zonder Hoge Prijskaart",
             date: "30 mei 2025",
             description: "Leer hoe je een professionele website kunt krijgen zonder duizenden euro's uit te geven.",
