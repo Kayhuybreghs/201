@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
             link: "lokale-seo-venlo-klanten.html"
         },
         {
-            category: "Webdesign",
+            category: "Webdesign & Websites",
             title: "Wat Maakt Een Goede Homepage?",
             date: "30 mei 2025",
             description: "Ontdek de essentiële elementen van een effectieve homepage.",
