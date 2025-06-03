@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
             link: "waarom-geen-templates-gebruiken.html"
         },
         {
-            category: "Prijzen & Kosten",
+            category: "Prijzen & Werkwijze",
             title: "Wat Kost Een Website Echt?",
             date: "30 mei 2025",
             description: "Transparante uitleg over de kosten van een website, zonder verkooptrucs of verstopte kosten.",
