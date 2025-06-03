@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
             link: "wat-kost-een-website-echt.html"
         },
         {
-            category: "Werkwijze",
+            category: "Algemeen / Over KHCustomWeb",
             title: "Waarom Onze Persoonlijke Aanpak Jouw Website Beter Maakt",
             date: "30 mei 2025",
             description: "Lees waarom persoonlijk contact en maatwerk zorgen voor betere resultaten.",
