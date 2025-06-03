@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
             link: "seo-fouten-venlo-klanten-missen.html"
         },
         {
-            category: "SEO",
+            category: "SEO & Marketing",
             title: "3 Essentiële SEO-Tips voor 2025",
             date: "30 mei 2025",
             description: "Praktische SEO-tips die je nu al moet toepassen voor 2025.",
