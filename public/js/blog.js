@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
             link: "call-to-action-website.html"
         },
         {
-            category: "Webdesign",
+            category: "Techniek & Performance",
             title: "De 3 Meest Gemaakte Webdesign-Fouten Door Ondernemers",
             date: "30 mei 2025",
             description: "Voorkom deze veelvoorkomende fouten bij je website.",
@@ -125,14 +125,14 @@ document.addEventListener('DOMContentLoaded', function() {
             link: "bloggen-marketing-ondernemers.html"
         },
         {
-            category: "Webdesign",
+            category: "Webdesign & Websites",
             title: "Wat Werkt in 2025? De Slimste Manier om een Website te Bouwen",
             date: "30 mei 2025",
             description: "De nieuwste trends en beste praktijken voor websites in 2025.",
             link: "website-bouwen-2025.html"
         },
         {
-            category: "Webdesign",
+            category: "Webdesign & Websites",
             title: "Hoe KHCustomWeb Webdesign in Venlo Verandert",
             date: "30 mei 2025",
             description: "Maak kennis met onze unieke aanpak van webdesign.",
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
             link: "website-past-bij-jouw-branche.html"
         },
         {
-            category: "Webhosting",
+            category: "Webdesign & Websites",
             title: "Voor wie is mijn hosting & onderhoudsdienst ideaal?",
             date: "30 mei 2025",
             description: "Ontdek of onze hosting en onderhoudsdienst bij jou past.",
