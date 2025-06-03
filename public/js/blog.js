@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
             link: "goede-homepage-kenmerken.html"
         },
         {
-            category: "Marketing & Copywriting",
+            category: "SEO & Marketing",
             title: "Copywriting: De Onzichtbare Kracht Achter Websites Die Converteren",
             date: "30 mei 2025",
             description: "Leer hoe goede teksten je website effectiever maken.",
