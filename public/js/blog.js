@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
             link: "copywriting-websites-converteren.html"
         },
         {
-            category: "Conversie",
+            category: "Techniek & Performance",
             title: "Wat is een Call-To-Action?",
             date: "30 mei 2025",
             description: "Waarom je website minstens 3 CTA's nodig heeft.",
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
             link: "webdesign-fouten-ondernemers.html"
         },
         {
-            category: "Contentmarketing",
+            category: "SEO & Marketing",
             title: "Waarom Bloggen? De Slimste Marketing Voor Kleine Ondernemers",
             date: "30 mei 2025",
             description: "Ontdek waarom bloggen zo krachtig is voor kleine ondernemers.",
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
             link: "hoe-khcustomweb-webdesign-verandert.html"
         },
         {
-            category: "Branchegericht",
+            category: "Webdesign & Websites",
             title: "Welke Website Past Bij Jouw Branche?",
             date: "30 mei 2025",
             description: "Specifieke tips voor verschillende branches.",
