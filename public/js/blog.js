@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
             link: "website-venlo-google-scoren-oplossen.html"
         },
         {
-            category: "SEO",
+            category: "SEO & Marketing",
             title: "Deze 3 SEO-fouten kosten Venlose ondernemers dagelijks klanten",
             date: "30 mei 2025",
             description: "Leer welke SEO-fouten je moet vermijden om meer klanten te krijgen.",
