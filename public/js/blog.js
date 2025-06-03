@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
             link: "call-to-action-website.html"
         },
         {
-            category: "Techniek & Performance",
+            category: "Webdesign & Websites",
             title: "De 3 Meest Gemaakte Webdesign-Fouten Door Ondernemers",
             date: "30 mei 2025",
             description: "Voorkom deze veelvoorkomende fouten bij je website.",
