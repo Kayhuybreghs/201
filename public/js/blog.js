@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
             link: "persoonlijke-aanpak-webdesign.html"
         },
         {
-            category: "Technisch",
+            category: "Techniek & Performance",
             title: "Waarom jouw website binnen 2 seconden moet laden",
             date: "30 mei 2025",
             description: "De impact van laadsnelheid op je bezoekers en conversies.",
