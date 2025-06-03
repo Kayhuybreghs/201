@@ -37,7 +37,7 @@
     font-size: 1rem;
     color: #333;
     max-width: 600px;
-    margin: 0 auto 20em auto;
+    margin: 0 auto var(--spacing-xl) auto;
     line-height: 1.6;
     text-align: center;
 }
@@ -47,6 +47,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-xl);
     margin-bottom: var(--spacing-xxl);
+    min-height: 200px;
 }
 
 .pagination {
@@ -263,6 +264,7 @@
     padding: var(--spacing-md);
     background-color: var(--color-light-2);
     border-radius: var(--border-radius-lg);
+    overflow-x: auto;
 }
 
 .filter-button {
@@ -277,6 +279,7 @@
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
+    white-space: nowrap;
 }
 
 .filter-button:hover {
@@ -382,6 +385,23 @@
     transition: transform var(--transition-normal);
 }
 
+.no-posts-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: var(--spacing-xxl);
+    background-color: var(--color-light-2);
+    border-radius: var(--border-radius-lg);
+}
+
+.no-posts-message h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.no-posts-message p {
+    color: var(--color-dark-2);
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -401,6 +421,8 @@
     .filter-bar {
         padding: var(--spacing-sm);
         gap: var(--spacing-xs);
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .filter-button {
@@ -430,5 +452,14 @@
     .page-header p {
         font-size: 1rem;
         max-width: 90%;
+    }
+    
+    .filter-bar::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .filter-bar {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
     }
 }

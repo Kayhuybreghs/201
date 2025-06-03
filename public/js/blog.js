@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const blogGrid = document.querySelector('.blog-grid');
     const paginationContainer = document.querySelector('.pagination');
+    const filterBarContainer = document.querySelector('.filter-bar');
     const postsPerPage = 9;
 
     // All blog posts data
@@ -132,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
             link: "website-bouwen-2025.html"
         },
         {
-            category: "Webdesign & Websites",
+            category: "Algemeen / Over KHCustomWeb",
             title: "Hoe KHCustomWeb Webdesign in Venlo Verandert",
             date: "30 mei 2025",
             description: "Maak kennis met onze unieke aanpak van webdesign.",
@@ -154,12 +155,94 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ];
 
-    // Calculate total pages
-    const totalPages = Math.ceil(blogPosts.length / postsPerPage);
+    // Get unique categories and count posts per category
+    function getCategoriesWithCounts() {
+        const categories = {};
+        
+        // Count posts per category
+        blogPosts.forEach(post => {
+            if (!categories[post.category]) {
+                categories[post.category] = 0;
+            }
+            categories[post.category]++;
+        });
+        
+        // Convert to array of objects for easier handling
+        return Object.entries(categories).map(([name, count]) => ({ name, count }));
+    }
+
+    // Create filter buttons
+    function createFilterButtons() {
+        // Clear existing buttons
+        filterBarContainer.innerHTML = '';
+        
+        // Get categories with counts
+        const categories = getCategoriesWithCounts();
+        
+        // Add "All" button
+        const allButton = document.createElement('button');
+        allButton.className = 'filter-button active';
+        allButton.dataset.category = 'all';
+        allButton.innerHTML = `
+            Alle artikelen
+            <span class="count">${blogPosts.length}</span>
+        `;
+        allButton.addEventListener('click', () => filterPosts('all'));
+        filterBarContainer.appendChild(allButton);
+        
+        // Add category buttons
+        categories.forEach(category => {
+            const button = document.createElement('button');
+            button.className = 'filter-button';
+            button.dataset.category = category.name;
+            button.innerHTML = `
+                ${category.name}
+                <span class="count">${category.count}</span>
+            `;
+            button.addEventListener('click', () => filterPosts(category.name));
+            filterBarContainer.appendChild(button);
+        });
+    }
+
+    // Filter posts by category
+    let currentCategory = 'all';
+    let filteredPosts = [...blogPosts];
+
+    function filterPosts(category) {
+        // Update active button
+        document.querySelectorAll('.filter-button').forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.dataset.category === category) {
+                btn.classList.add('active');
+            }
+        });
+        
+        // Filter posts
+        currentCategory = category;
+        if (category === 'all') {
+            filteredPosts = [...blogPosts];
+        } else {
+            filteredPosts = blogPosts.filter(post => post.category === category);
+        }
+        
+        // Recalculate pagination and show first page
+        createPagination();
+        showPage(1);
+        
+        // Smooth scroll to top of blog section
+        document.querySelector('.blog-section').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Calculate total pages based on filtered posts
+    function getTotalPages() {
+        return Math.ceil(filteredPosts.length / postsPerPage);
+    }
 
     // Create pagination buttons
     function createPagination() {
         paginationContainer.innerHTML = '';
+        const totalPages = getTotalPages();
+        
         for (let i = 1; i <= totalPages; i++) {
             const button = document.createElement('button');
             button.className = `pagination-button ${i === 1 ? 'active' : ''}`;
@@ -170,12 +253,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     showPage(i);
                     // Smooth scroll to top
                     window.scrollTo({
-                        top: 0,
+                        top: document.querySelector('.blog-section').offsetTop - 100,
                         behavior: 'smooth'
                     });
                 }
             });
             paginationContainer.appendChild(button);
+        }
+        
+        // Hide pagination if only one page
+        if (totalPages <= 1) {
+            paginationContainer.style.display = 'none';
+        } else {
+            paginationContainer.style.display = 'flex';
         }
     }
 
@@ -183,7 +273,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function showPage(pageNumber) {
         const start = (pageNumber - 1) * postsPerPage;
         const end = start + postsPerPage;
-        const pageItems = blogPosts.slice(start, end);
+        const pageItems = filteredPosts.slice(start, end);
 
         // Update active button
         document.querySelectorAll('.pagination-button').forEach(btn => {
@@ -199,40 +289,54 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             // Clear and populate blog grid
             blogGrid.innerHTML = '';
-            pageItems.forEach((post, index) => {
-                const article = document.createElement('article');
-                article.className = 'blog-card';
-                article.dataset.category = 'Algemeen';
-                article.style.opacity = '0';
-                article.style.transform = 'translateY(20px)';
-                article.style.transition = `all 0.3s ease ${index * 0.1}s`;
-                article.innerHTML = `
-                    <div class="blog-content">
-                        <span class="category">${post.category}</span>
-                        <h2>${post.title}</h2>
-                        <time datetime="${post.date.replace(' ', '-')}">${post.date}</time>
-                        <p>${post.description}</p>
-                        <a href="${post.link}" class="read-more">
-                            Lees meer
-                            <span class="arrow">→</span>
-                        </a>
-                    </div>
+            
+            if (pageItems.length === 0) {
+                // Show "no posts found" message
+                const noPostsMessage = document.createElement('div');
+                noPostsMessage.className = 'no-posts-message';
+                noPostsMessage.innerHTML = `
+                    <h3>Geen artikelen gevonden</h3>
+                    <p>Er zijn geen artikelen in deze categorie. Probeer een andere categorie.</p>
                 `;
-                blogGrid.appendChild(article);
-                
-                // Trigger reflow
-                article.offsetHeight;
-                
-                // Fade in new posts
-                article.style.opacity = '1';
-                article.style.transform = 'translateY(0)';
-            });
+                blogGrid.appendChild(noPostsMessage);
+            } else {
+                // Show posts
+                pageItems.forEach((post, index) => {
+                    const article = document.createElement('article');
+                    article.className = 'blog-card';
+                    article.dataset.category = post.category;
+                    article.style.opacity = '0';
+                    article.style.transform = 'translateY(20px)';
+                    article.style.transition = `all 0.3s ease ${index * 0.1}s`;
+                    article.innerHTML = `
+                        <div class="blog-content">
+                            <span class="category">${post.category}</span>
+                            <h2>${post.title}</h2>
+                            <time datetime="${post.date.replace(' ', '-')}">${post.date}</time>
+                            <p>${post.description}</p>
+                            <a href="${post.link}" class="read-more">
+                                Lees meer
+                                <span class="arrow">→</span>
+                            </a>
+                        </div>
+                    `;
+                    blogGrid.appendChild(article);
+                    
+                    // Trigger reflow
+                    article.offsetHeight;
+                    
+                    // Fade in new posts
+                    article.style.opacity = '1';
+                    article.style.transform = 'translateY(0)';
+                });
+            }
             
             blogGrid.style.opacity = '1';
         }, 300);
     }
 
-    // Initialize pagination and show first page
+    // Initialize filter buttons, pagination and show first page
+    createFilterButtons();
     createPagination();
     showPage(1);
 });
