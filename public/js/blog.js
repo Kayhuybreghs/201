@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
             link: "professionele-website-venlo.html"
         },
         {
-            category: "Webdesign",
+            category: "Webdesign & Websites",
             title: "Waarom mijn Websites Geen Templates Gebruiken",
             date: "30 mei 2025",
             description: "Ontdek waarom maatwerk beter is dan templates en wat dat voor jou betekent.",
