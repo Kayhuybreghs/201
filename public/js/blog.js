@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
             link: "seo-tips-2025.html"
         },
         {
-            category: "SEO",
+            category: "SEO & Marketing",
             title: "Wat is Lokale SEO?",
             date: "30 mei 2025",
             description: "Alles over lokale vindbaarheid voor jouw Venlose bedrijf.",
