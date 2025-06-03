@@ -55,14 +55,14 @@ document.addEventListener('DOMContentLoaded', function() {
             link: "website-snelheid-2-seconden.html"
         },
         {
-            category: "Marketing",
+            category: "SEO & Marketing",
             title: "Waarom Een Snel Lade Website Je Meer Oplevert dan Reclame",
             date: "30 mei 2025",
             description: "Vergelijk de ROI van een snelle website met traditionele reclame.",
             link: "snelle-website-meer-opbrengst-dan-reclame.html"
         },
         {
-            category: "SEO",
+            category: "SEO & Marketing",
             title: "Waarom je Website in Venlo niet Scoort in Google",
             date: "30 mei 2025",
             description: "Ontdek de meestvoorkomende redenen waarom je niet goed vindbaar bent.",
