@@ -975,7 +975,7 @@
         top: 50%;
         left: auto;
         right: -80px;
-        transform: translateY(-50%) rotate(45deg);
+        transform: translateY(-50%) rotate(30deg);
         opacity: 0.15;
         background: rgba(255, 107, 0, 0.3);
     }
