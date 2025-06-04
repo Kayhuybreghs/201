@@ -56,13 +56,39 @@
     /* Animation keyframes for floating */
     @keyframes float-animation-y {
       0% {
-        transform: translateY(0);
+        transform: translateX(-50%) rotate(20deg) translateY(0);
       }
       50% {
-        transform: translateY(-20px);
+        transform: translateX(-50%) rotate(20deg) translateY(-20px);
       }
       100% {
-        transform: translateY(0);
+        transform: translateX(-50%) rotate(20deg) translateY(0);
+      }
+    }
+    
+    /* Animation for hero::before element */
+    @keyframes float-before {
+      0% {
+        transform: rotate(-15deg) translateY(0);
+      }
+      50% {
+        transform: rotate(-15deg) translateY(-20px);
+      }
+      100% {
+        transform: rotate(-15deg) translateY(0);
+      }
+    }
+    
+    /* Animation for hexagon shape */
+    @keyframes float-hexagon {
+      0% {
+        transform: rotate(-15deg) translateY(0);
+      }
+      50% {
+        transform: rotate(-15deg) translateY(-20px);
+      }
+      100% {
+        transform: rotate(-15deg) translateY(0);
       }
     }
     
@@ -84,11 +110,11 @@
         right: -50px;
         transform: rotate(-15deg);
         z-index: 0;
-        animation: float-animation-y 7s ease-in-out infinite alternate;
+        animation: float-hexagon 7s ease-in-out infinite alternate;
       }
       
       .hero-figure {
-        animation: float-animation-y 3ease-in-out infinite alternate;
+        animation: float-animation-y 3s ease-in-out infinite alternate;
       }
       
       .hero::before {
@@ -103,7 +129,7 @@
         top: 100px;
         transform: rotate(-15deg);
         z-index: 0;
-        animation: float-animation-y 5s ease-in-out infinite alternate;
+        animation: float-before 5s ease-in-out infinite alternate;
       }
     }
     </style>
